@@ -336,9 +336,9 @@ ul {
   position: absolute;
   inset: 0;                 /* Equivale a top/right/bottom/left: 0 */
   background-image: url('../img/banner2.jpg');
-  background-size: cover;
-  background-position: center top;
-  opacity: 0.22;            /* Semi-transparente para não competir com o texto */
+  background-size: auto 100%;
+  background-position: right center;
+  opacity: 0.35;            /* Semi-transparente para não competir com o texto */
 }
 
 /* Conteúdo textual do hero */
