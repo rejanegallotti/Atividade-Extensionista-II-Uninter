@@ -1,0 +1,1058 @@
+/*
+  ============================================================
+  DOCES VIEIRA — Folha de Estilos Principal
+  ============================================================
+  Arquivo:    css/style.css
+  Descrição:  Todos os estilos visuais do site usando CSS3.
+              Organizado em seções comentadas para facilitar
+              a leitura e manutenção do código.
+
+  Sumário:
+    1. Variáveis CSS (Custom Properties)
+    2. Reset e Base
+    3. Tipografia
+    4. Utilitários (container, botões)
+    5. Header / Navegação
+    6. Menu Mobile (Hambúrguer)
+    7. Hero (Banner principal)
+    8. Barra de Diferenciais
+    9. Seção de Produtos / Cards
+   10. Modal de Ingredientes
+   11. Seção Sobre Nós
+   12. Seção de Contato
+   13. Rodapé
+   14. Animações (@keyframes)
+   15. Media Queries (Responsividade)
+  ============================================================
+*/
+
+
+/* ============================================================
+   1. VARIÁVEIS CSS (Custom Properties)
+   Centralizamos as cores e valores repetidos aqui.
+   Para mudar a identidade visual, basta alterar estes valores.
+============================================================ */
+:root {
+  /* Paleta de cores da marca */
+  --cor-principal:    #d4006a;   /* Rosa vibrante — cor primária */
+  --cor-rosa-claro:   #f5a8d0;   /* Rosa suave — bordas e detalhes */
+  --cor-rosa-palido:  #fdf0f7;   /* Rosa quase branco — fundos */
+  --cor-preta:        #1a1a1a;   /* Preto suave — textos principais */
+  --cor-cinza:        #555555;   /* Cinza — textos secundários */
+  --cor-branca:       #ffffff;   /* Branco puro */
+
+  /* Tipografia */
+  --fonte-titulo:  'Playfair Display', Georgia, serif;
+  --fonte-corpo:   'Lato', Arial, sans-serif;
+
+  /* Espaçamentos padrão */
+  --espacamento-secao: 72px;
+  --espacamento-medio: 48px;
+  --espacamento-pequeno: 24px;
+
+  /* Bordas arredondadas */
+  --raio-card:   20px;
+  --raio-botao:  50px;
+  --raio-modal:  24px;
+
+  /* Sombras */
+  --sombra-card:  0 4px 24px rgba(0, 0, 0, 0.08);
+  --sombra-hover: 0 20px 50px rgba(212, 0, 106, 0.22);
+
+  /* Transição padrão */
+  --transicao: 0.28s ease;
+}
+
+
+/* ============================================================
+   2. RESET E BASE
+   Remove estilos padrão inconsistentes entre navegadores
+   e define comportamentos globais da página.
+============================================================ */
+
+/* Box-sizing: inclui padding e border no cálculo de largura */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Rolagem suave ao clicar em links de âncora (#seção) */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fonte-corpo);
+  color: var(--cor-preta);
+  background-color: var(--cor-branca);
+  overflow-x: hidden; /* Evita scroll horizontal indesejado */
+  line-height: 1.6;
+}
+
+/* Imagens responsivas por padrão */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove sublinhado de links mas mantém cor herdada */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Lista sem marcadores */
+ul {
+  list-style: none;
+}
+
+
+/* ============================================================
+   3. TIPOGRAFIA
+   Estilos reutilizáveis para títulos e textos de seção.
+============================================================ */
+
+/* Etiqueta/label acima dos títulos de seção */
+.section-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--cor-principal);
+  margin-bottom: 10px;
+}
+
+/* Título principal de cada seção */
+.section-title {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem); /* Tamanho fluido: mínimo, preferido, máximo */
+  color: var(--cor-preta);
+  margin-bottom: 14px;
+  line-height: 1.15;
+}
+
+/* Parágrafo de apoio abaixo do título de seção */
+.section-sub {
+  color: var(--cor-cinza);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 560px;
+  margin-bottom: 48px;
+}
+
+
+/* ============================================================
+   4. UTILITÁRIOS
+   Classes auxiliares reutilizáveis em várias seções.
+============================================================ */
+
+/* Container centralizado com largura máxima */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Variação centralizada (texto e itens ao centro) */
+.container--center {
+  text-align: center;
+}
+
+.container--center .section-sub {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Botão primário (rosa sólido) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--cor-principal);
+  color: var(--cor-branca);
+  padding: 14px 36px;
+  border-radius: var(--raio-botao);
+  font-weight: 700;
+  font-size: 1rem;
+  transition: transform var(--transicao), background-color var(--transicao);
+  box-shadow: 0 6px 30px rgba(212, 0, 106, 0.45);
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  background-color: #a8004f;
+}
+
+/* Botão WhatsApp (header) */
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--cor-principal);
+  color: var(--cor-branca) !important;
+  padding: 10px 22px;
+  border-radius: var(--raio-botao);
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-left: 28px;
+  transition: background-color var(--transicao), transform 0.15s;
+}
+
+.btn-whatsapp:hover {
+  background-color: #a8004f;
+  transform: scale(1.04);
+}
+
+
+/* ============================================================
+   5. HEADER / NAVEGAÇÃO
+   Cabeçalho fixo no topo. Usa Flexbox para alinhar
+   logo à esquerda e menu à direita.
+============================================================ */
+.header {
+  position: sticky;       /* Fica fixo ao rolar a página */
+  top: 0;
+  z-index: 100;           /* Fica na frente de outros elementos */
+  background-color: var(--cor-branca);
+  border-bottom: 2px solid var(--cor-rosa-claro);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 48px;
+  box-shadow: 0 2px 18px rgba(212, 0, 106, 0.10);
+}
+
+/* Grupo logo + nome */
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.header-logo img {
+  height: 64px;
+  width: 64px;
+  object-fit: cover;
+  border-radius: 50%;      /* Imagem circular */
+  border: 2.5px solid var(--cor-principal);
+}
+
+/* Nome da marca no header */
+.header-brand {
+  font-family: var(--fonte-titulo);
+  font-size: 1.55rem;
+  color: var(--cor-principal);
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+}
+
+/* Subtítulo abaixo do nome */
+.header-brand span {
+  display: block;
+  font-family: var(--fonte-corpo);
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: var(--cor-cinza);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Links de navegação */
+.header-nav a {
+  color: var(--cor-preta);
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-left: 32px;
+  transition: color var(--transicao);
+}
+
+.header-nav a:hover {
+  color: var(--cor-principal);
+}
+
+
+/* ============================================================
+   6. MENU MOBILE (Hambúrguer)
+   Botão visível apenas em telas pequenas.
+   As 3 linhas animam para formar um "X" quando ativo.
+============================================================ */
+.menu-toggle {
+  display: none;              /* Oculto em desktop */
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* Cada linha do ícone hambúrguer */
+.menu-toggle span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background-color: var(--cor-principal);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Animação: primeira linha vira diagonal para cima */
+.menu-toggle.ativo span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+/* Animação: linha do meio some */
+.menu-toggle.ativo span:nth-child(2) {
+  opacity: 0;
+}
+
+/* Animação: última linha vira diagonal para baixo */
+.menu-toggle.ativo span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* ============================================================
+   7. HERO (BANNER PRINCIPAL)
+   Seção de destaque com imagem de fundo, overlay e texto.
+   Usa position:relative/absolute para sobrepor camadas.
+============================================================ */
+.hero {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  /* Gradiente de fundo caso a imagem não carregue */
+  background: linear-gradient(135deg, #1a1a1a 0%, #3a0020 60%, #d4006a 100%);
+}
+
+/* Camada da imagem de fundo (definida via CSS, não HTML) */
+.hero-bg {
+  position: absolute;
+  inset: 0;                 /* Equivale a top/right/bottom/left: 0 */
+  background-image: url('../img/banner2.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.22;            /* Semi-transparente para não competir com o texto */
+}
+
+/* Conteúdo textual do hero */
+.hero-content {
+  position: relative;
+  z-index: 2;               /* Fica acima do overlay */
+  padding: 60px 80px;
+  max-width: 620px;
+  animation: fadeUp 0.9s ease both; /* Animação de entrada */
+}
+
+/* Badge/etiqueta de destaque */
+.hero-tag {
+  display: inline-block;
+  background-color: var(--cor-principal);
+  color: var(--cor-branca);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: var(--raio-botao);
+  margin-bottom: 20px;
+}
+
+/* Título principal do hero */
+.hero h1 {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  color: var(--cor-branca);
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+
+/* Palavra em itálico no título (destaque visual) */
+.hero h1 em {
+  color: var(--cor-rosa-claro);
+  font-style: italic;
+}
+
+/* Parágrafo do hero */
+.hero p {
+  color: rgba(255, 255, 255, 0.80);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+
+/* ============================================================
+   8. BARRA DE DIFERENCIAIS
+   Faixa horizontal com ícones destacando os pontos fortes.
+   Usa Flexbox para distribuir os itens igualmente.
+============================================================ */
+.features-bar {
+  background-color: var(--cor-rosa-palido);
+  padding: 28px 48px;
+  display: flex;
+  justify-content: center;
+  gap: 56px;
+  flex-wrap: wrap;          /* Quebra em linha em telas menores */
+  border-bottom: 1px solid var(--cor-rosa-claro);
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--cor-cinza);
+}
+
+.feature-icon {
+  font-size: 1.4rem;
+}
+
+
+/* ============================================================
+   9. SEÇÃO DE PRODUTOS / CARDS
+   Layout em Grid CSS para exibir os cards de produtos.
+   Cada card tem: imagem, overlay (hover), e informações.
+============================================================ */
+.products-section {
+  padding: var(--espacamento-secao) var(--espacamento-medio);
+  background-color: var(--cor-branca);
+}
+
+/* Grade responsiva: auto-fill preenche com colunas de 270px */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 32px;
+}
+
+/* Card individual de produto */
+.card {
+  border-radius: var(--raio-card);
+  overflow: hidden;
+  background-color: var(--cor-branca);
+  box-shadow: var(--sombra-card);
+  cursor: pointer;
+  /* Transição com efeito "mola" (cubic-bezier personalizado) */
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow var(--transicao);
+  position: relative;
+}
+
+/* Efeito de elevação ao passar o mouse (hover) */
+.card:hover {
+  transform: translateY(-10px) scale(1.025);
+  box-shadow: var(--sombra-hover);
+}
+
+/* Wrapper da imagem (necessário para o clip do zoom) */
+.card-img-wrap {
+  overflow: hidden;
+}
+
+/* Imagem do produto */
+.card-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* Zoom na imagem ao passar o mouse */
+.card:hover .card-img {
+  transform: scale(1.06);
+}
+
+/* Overlay gradiente que aparece no hover */
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  /* Gradiente de baixo para cima: rosa sólido → transparente */
+  background: linear-gradient(
+    to top,
+    rgba(212, 0, 106, 0.92) 0%,
+    transparent 55%
+  );
+  opacity: 0;               /* Invisível por padrão */
+  transition: opacity 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+}
+
+/* Overlay aparece no hover */
+.card:hover .card-overlay {
+  opacity: 1;
+}
+
+/* Título dentro do overlay */
+.overlay-title {
+  font-family: var(--fonte-titulo);
+  font-size: 1.25rem;
+  color: var(--cor-branca);
+  margin-bottom: 8px;
+}
+
+/* Descrição dentro do overlay */
+.overlay-desc {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.90);
+  line-height: 1.5;
+}
+
+/* Rodapé do card (abaixo da imagem) */
+.card-body {
+  padding: 18px 20px 20px;
+}
+
+/* Nome do produto no card */
+.card-name {
+  font-family: var(--fonte-titulo);
+  font-size: 1.1rem;
+  color: var(--cor-preta);
+  margin-bottom: 5px;
+}
+
+/* Tag/categoria do produto */
+.card-tag {
+  display: inline-block;
+  background-color: var(--cor-rosa-palido);
+  color: var(--cor-principal);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: var(--raio-botao);
+}
+
+/* Dica de interação */
+.card-hint {
+  font-size: 0.78rem;
+  color: var(--cor-cinza);
+  margin-top: 8px;
+  font-style: italic;
+}
+
+
+/* ============================================================
+  10. MODAL DE INGREDIENTES
+  Janela flutuante que exibe os detalhes do produto.
+  O overlay cobre a tela inteira com fundo semitransparente.
+  A classe .active (adicionada pelo JS) exibe o modal.
+============================================================ */
+
+/* Fundo escuro semitransparente (cobre a página inteira) */
+.modal-overlay {
+  display: none;            /* Oculto por padrão */
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(4px); /* Desfoque no fundo */
+}
+
+/* Exibir o modal quando a classe .active é adicionada pelo JS */
+.modal-overlay.active {
+  display: flex;
+  animation: fadeIn 0.2s ease;
+}
+
+/* Caixa do modal */
+.modal {
+  background-color: var(--cor-branca);
+  border-radius: var(--raio-modal);
+  max-width: 560px;
+  width: 100%;
+  overflow: hidden;
+  animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  position: relative;
+}
+
+/* Imagem do produto no modal */
+.modal-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+/* Área de texto do modal */
+.modal-body {
+  padding: 28px 32px 32px;
+}
+
+/* Categoria do produto (ex: "Brigadeiro Gourmet") */
+.modal-category {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--cor-principal);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+/* Título do produto no modal */
+.modal-title {
+  font-family: var(--fonte-titulo);
+  font-size: 1.65rem;
+  color: var(--cor-preta);
+  margin-bottom: 12px;
+}
+
+/* Descrição do produto */
+.modal-desc {
+  font-size: 0.95rem;
+  color: var(--cor-cinza);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+/* Label "Ingredientes principais" */
+.modal-ingredients-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cor-cinza);
+  margin-bottom: 12px;
+}
+
+/* Área das tags de ingredientes */
+.modal-ingredients {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+/* Tag individual de ingrediente */
+.ingredient-tag {
+  background-color: var(--cor-rosa-palido);
+  color: var(--cor-principal);
+  padding: 5px 14px;
+  border-radius: var(--raio-botao);
+  font-size: 0.83rem;
+  font-weight: 600;
+  border: 1px solid var(--cor-rosa-claro);
+}
+
+/* Botão fechar (X) no canto superior do modal */
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  transition: background-color var(--transicao), color var(--transicao);
+}
+
+.modal-close:hover {
+  background-color: var(--cor-principal);
+  color: var(--cor-branca);
+}
+
+/* Botão WhatsApp dentro do modal */
+.btn-whatsapp-modal {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--cor-principal);
+  color: var(--cor-branca);
+  padding: 13px 28px;
+  border-radius: var(--raio-botao);
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: background-color var(--transicao), transform 0.15s;
+  box-shadow: 0 4px 20px rgba(212, 0, 106, 0.35);
+}
+
+.btn-whatsapp-modal:hover {
+  background-color: #a8004f;
+  transform: scale(1.03);
+}
+
+
+/* ============================================================
+  11. SEÇÃO SOBRE NÓS
+  Layout em duas colunas (Flexbox): foto à esquerda,
+  texto à direita. Fundo escuro para contraste.
+============================================================ */
+.about-section {
+  background: linear-gradient(135deg, #1a1a1a 0%, #3a0020 100%);
+  color: var(--cor-branca);
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  padding: 80px;
+  flex-wrap: wrap;          /* Empilha em telas menores */
+}
+
+/* Foto com borda rosa e sombra dramática */
+.about-img-wrap {
+  flex: 0 0 340px;
+  border-radius: var(--raio-card);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  border: 3px solid var(--cor-principal);
+}
+
+.about-img-wrap img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* Área de texto */
+.about-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+/* Ajusta cores do texto para o fundo escuro */
+.about-text .section-label {
+  color: var(--cor-rosa-claro);
+}
+
+.about-text .section-title {
+  color: var(--cor-branca);
+}
+
+.about-text p {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+/* Linha com números de destaque */
+.about-highlights {
+  display: flex;
+  gap: 32px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+/* Item individual de destaque */
+.highlight {
+  text-align: center;
+}
+
+.highlight-number {
+  font-family: var(--fonte-titulo);
+  font-size: 2.4rem;
+  color: var(--cor-rosa-claro);
+  line-height: 1;
+}
+
+.highlight-label {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+
+/* ============================================================
+  12. SEÇÃO DE CONTATO
+  Cards centralizados com informações de contato.
+  Fundo rosa pálido para diferenciar da seção anterior.
+============================================================ */
+.contact-section {
+  background-color: var(--cor-rosa-palido);
+  padding: var(--espacamento-secao) var(--espacamento-medio);
+}
+
+/* Grade de cards de contato */
+.contact-cards {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Card individual */
+.contact-card {
+  background-color: var(--cor-branca);
+  border-radius: 18px;
+  padding: 32px 36px;
+  min-width: 200px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+  border: 1.5px solid var(--cor-rosa-claro);
+  /* Transição suave para efeito de hover */
+  transition: transform var(--transicao), box-shadow var(--transicao);
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(212, 0, 106, 0.15);
+}
+
+.contact-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.contact-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cor-cinza);
+  margin-bottom: 6px;
+}
+
+.contact-value {
+  font-family: var(--fonte-titulo);
+  font-size: 1.1rem;
+  color: var(--cor-preta);
+}
+
+.contact-value a {
+  color: var(--cor-principal);
+  font-weight: 700;
+  transition: color var(--transicao);
+}
+
+.contact-value a:hover {
+  color: #a8004f;
+}
+
+
+/* ============================================================
+  13. RODAPÉ
+  Fundo preto com texto centralizado.
+============================================================ */
+.footer {
+  background-color: var(--cor-preta);
+  color: rgba(255, 255, 255, 0.55);
+  text-align: center;
+  padding: 28px 48px;
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+
+.footer strong {
+  color: var(--cor-principal);
+}
+
+.footer-sub {
+  font-size: 0.78rem;
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+
+/* ============================================================
+  14. ANIMAÇÕES (@keyframes)
+  Definem os movimentos usados nas transições e entradas.
+============================================================ */
+
+/* Subida com fade — usado no conteúdo do hero */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade simples — usado no overlay do modal */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Pop com escala — usado na caixa do modal */
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+
+/* ============================================================
+  15. MEDIA QUERIES (RESPONSIVIDADE)
+  Adaptações do layout para diferentes tamanhos de tela.
+
+  Breakpoints utilizados:
+    - 992px → Tablet paisagem / desktop pequeno
+    - 768px → Tablet retrato / mobile grande
+    - 480px → Mobile pequeno
+============================================================ */
+
+/* --- Tablet e desktop pequeno (≤ 992px) --- */
+@media (max-width: 992px) {
+  .header {
+    padding: 12px 24px;
+  }
+
+  .hero-content {
+    padding: 60px 40px;
+  }
+
+  .about-section {
+    padding: 60px 40px;
+    gap: 40px;
+  }
+}
+
+/* --- Tablet / Mobile grande (≤ 768px) --- */
+@media (max-width: 768px) {
+
+  /* HEADER: esconde nav e mostra botão hambúrguer */
+  .header-nav {
+    display: none;              /* Oculto por padrão no mobile */
+    position: absolute;
+    top: 90px;
+    left: 0;
+    right: 0;
+    background-color: var(--cor-branca);
+    padding: 20px 24px;
+    border-bottom: 2px solid var(--cor-rosa-claro);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+    flex-direction: column;
+    gap: 16px;
+    z-index: 99;
+  }
+
+  /* Quando o menu está aberto (classe adicionada pelo JS) */
+  .header-nav.aberto {
+    display: flex;
+  }
+
+  .header-nav a {
+    margin-left: 0;
+    font-size: 1rem;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--cor-rosa-palido);
+  }
+
+  .btn-whatsapp {
+    margin-left: 0 !important;
+    justify-content: center;
+  }
+
+  /* Mostra o botão hambúrguer */
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* HERO */
+  .hero-content {
+    padding: 40px 24px;
+  }
+
+  /* FEATURES BAR */
+  .features-bar {
+    padding: 20px 24px;
+    gap: 28px;
+  }
+
+  /* SEÇÕES */
+  .products-section,
+  .contact-section {
+    padding: 52px 20px;
+  }
+
+  /* PRODUTOS: menos colunas */
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  /* SOBRE: empilha imagem e texto */
+  .about-section {
+    padding: 52px 24px;
+    gap: 32px;
+  }
+
+  .about-img-wrap {
+    flex: 0 0 100%;           /* Ocupa toda a largura */
+  }
+
+  .about-img-wrap img {
+    height: 280px;
+  }
+
+  /* MODAL */
+  .modal-body {
+    padding: 20px 24px 24px;
+  }
+
+  .modal-img {
+    height: 220px;
+  }
+}
+
+/* --- Mobile pequeno (≤ 480px) --- */
+@media (max-width: 480px) {
+  .header-logo img {
+    height: 48px;
+    width: 48px;
+  }
+
+  .header-brand {
+    font-size: 1.2rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr; /* Uma coluna apenas */
+  }
+
+  .contact-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-card {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .about-highlights {
+    justify-content: center;
+  }
+
+  .footer {
+    padding: 24px 20px;
+  }
+}

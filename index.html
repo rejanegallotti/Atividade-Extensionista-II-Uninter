@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  DOCES VIEIRA — Site Institucional
+  ============================================================
+  Arquivo:      index.html
+  Descrição:    Estrutura principal do site (HTML5 semântico)
+  Autora:       Doces Vieira
+  Tecnologias:  HTML5, CSS3, JavaScript (ES6+)
+
+  Estrutura de pastas do projeto:
+    index.html      → Esta página (estrutura)
+    css/style.css   → Estilos visuais (CSS3)
+    js/script.js    → Interatividade (JavaScript)
+    img/            → Imagens do site
+  ============================================================
+-->
+<html lang="pt-BR">
+
+<head>
+  <!-- Configuração de codificação e viewport responsivo -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO: título e descrição para motores de busca -->
+  <meta name="description" content="Doces Vieira – Brigadeiros gourmet e docinhos artesanais feitos com amor em Biguaçu, SC. Encomendas para festas e eventos.">
+  <meta name="keywords" content="brigadeiro, doces, festa, gourmet, Biguaçu, SC, encomenda">
+  <meta name="author" content="Doces Vieira">
+
+  <title>Doces Vieira – Docinhos Artesanais</title>
+
+  <!-- Google Fonts: tipografias personalizadas -->
+  <!-- Playfair Display: fonte serifada elegante para títulos -->
+  <!-- Lato: fonte sans-serif legível para textos corridos -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- Folha de estilos externa (CSS separado) -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ============================================================
+       CABEÇALHO (header)
+       Fixo no topo da página; contém logo, nome e navegação.
+       O atributo "sticky" no CSS garante que fique visível
+       durante o scroll da página.
+  ============================================================ -->
+  <header class="header" id="topo">
+    <div class="header-logo">
+      <!-- Logo da marca -->
+      <img src="img/logo.png" alt="Logo Doces Vieira – bolo com velas rosa e preto">
+      <div class="header-brand">
+        Doces Vieira
+        <span>Docinhos Artesanais</span>
+      </div>
+    </div>
+
+    <!-- Navegação principal (links âncora para seções da página) -->
+    <nav class="header-nav" id="mainNav" aria-label="Menu principal">
+      <a href="#produtos">Nossos Doces</a>
+      <a href="#sobre">Sobre Nós</a>
+      <a href="#contato">Contato</a>
+      <!-- Botão WhatsApp: abre conversa direta no aplicativo -->
+      <a href="https://wa.me/5548999627040" class="btn-whatsapp" target="_blank" rel="noopener">
+        &#128241; Fazer Pedido
+      </a>
+    </nav>
+
+    <!-- Botão hambúrguer: visível apenas em telas pequenas (mobile) -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- ============================================================
+       SEÇÃO HERO (banner principal)
+       Primeira coisa que o visitante vê ao abrir o site.
+       Contém imagem de fundo, chamada principal e botão de ação.
+  ============================================================ -->
+  <section class="hero" aria-label="Apresentação">
+    <!-- Overlay escuro sobre a imagem de fundo (definido no CSS) -->
+    <div class="hero-bg"></div>
+
+    <div class="hero-content">
+      <!-- Pequena etiqueta/badge acima do título -->
+      <div class="hero-tag">&#10024; Feito com amor e carinho</div>
+
+      <!-- Título principal com destaque em itálico -->
+      <h1>Seu dia <em>mais doce</em><br>começa aqui</h1>
+
+      <!-- Subtítulo descritivo -->
+      <p>
+        Brigadeiros gourmet, cajuzinhos e muito mais —
+        docinhos artesanais feitos fresquinhos para festas,
+        eventos e para adoçar o seu dia a dia.
+      </p>
+
+      <!-- Botão de ação principal (CTA = Call to Action) -->
+      <a href="#produtos" class="btn-primary">
+        Ver nossos doces &rarr;
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       BARRA DE DIFERENCIAIS
+       Destaca os principais pontos fortes do negócio
+       com ícones e textos curtos.
+  ============================================================ -->
+  <div class="features-bar" aria-label="Diferenciais">
+    <div class="feature-item">
+      <span class="feature-icon">&#127874;</span>
+      <span>Docinhos fresquinhos</span>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">&#127881;</span>
+      <span>Para festas e eventos</span>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">&#128149;</span>
+      <span>Brigadeiros gourmet</span>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">&#128230;</span>
+      <span>Encomendas por WhatsApp</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SEÇÃO DE PRODUTOS
+       Exibe os docinhos em grade (grid).
+       Os cards são gerados dinamicamente pelo JavaScript
+       com base no array de produtos definido no script.js.
+       O efeito de hover (mouse sobre o card) e o modal
+       com ingredientes são controlados pelo JavaScript.
+  ============================================================ -->
+  <section class="products-section" id="produtos" aria-label="Nossos produtos">
+    <div class="container">
+      <!-- Cabeçalho da seção -->
+      <p class="section-label">Nosso Cardápio</p>
+      <h2 class="section-title">Conheça nossos docinhos</h2>
+      <p class="section-sub">
+        Passe o mouse para ver cada detalhe ou clique para
+        descobrir os ingredientes de cada delícia. &#127851;
+      </p>
+
+      <!-- Grade de produtos — preenchida pelo JavaScript -->
+      <div class="products-grid" id="productsGrid" role="list">
+        <!-- Os cards são inseridos aqui pelo script.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEÇÃO SOBRE NÓS
+       Conta a história e os valores da Doces Vieira,
+       com foto e destaques numéricos.
+  ============================================================ -->
+  <section class="about-section" id="sobre" aria-label="Sobre nós">
+    <!-- Foto da confeiteira / produto em destaque -->
+    <div class="about-img-wrap">
+      <img src="img/banner2.jpg" alt="Confeiteira Doces Vieira segurando bolo decorado com brigadeiros coloridos">
+    </div>
+
+    <!-- Texto descritivo -->
+    <div class="about-text">
+      <p class="section-label">Nossa história</p>
+      <h2 class="section-title">Amor e sabor em cada docinho</h2>
+      <p>
+        A Doces Vieira nasceu da paixão por criar momentos inesquecíveis
+        através da confeitaria artesanal. Cada docinho é preparado com
+        ingredientes selecionados e muito carinho.
+      </p>
+      <p>
+        Especialistas em brigadeiros gourmet, cajuzinhos e docinhos de festa,
+        nosso compromisso é tornar cada celebração ainda mais especial e saborosa.
+      </p>
+
+      <!-- Números de destaque (counters) -->
+      <div class="about-highlights">
+        <div class="highlight">
+          <div class="highlight-number">100%</div>
+          <div class="highlight-label">Artesanal</div>
+        </div>
+        <div class="highlight">
+          <div class="highlight-number">+20</div>
+          <div class="highlight-label">Sabores</div>
+        </div>
+        <div class="highlight">
+          <div class="highlight-number">&#10084;&#65039;</div>
+          <div class="highlight-label">Com amor</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEÇÃO DE CONTATO
+       Exibe formas de contato: WhatsApp, Instagram e localização.
+       Os pedidos são realizados via WhatsApp (sem carrinho no site).
+  ============================================================ -->
+  <section class="contact-section" id="contato" aria-label="Contato e encomendas">
+    <div class="container container--center">
+      <p class="section-label">Entre em contato</p>
+      <h2 class="section-title">Faça sua encomenda</h2>
+      <p class="section-sub">
+        Os pedidos são feitos diretamente pelo WhatsApp.
+        Entre em contato e garanta seus docinhos!
+      </p>
+
+      <!-- Cards de contato -->
+      <div class="contact-cards">
+        <div class="contact-card">
+          <div class="contact-icon">&#128241;</div>
+          <div class="contact-label">WhatsApp</div>
+          <div class="contact-value">
+            <a href="https://wa.me/5548999627040" target="_blank" rel="noopener">
+              (48) 99962-7040
+            </a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">&#128248;</div>
+          <div class="contact-label">Instagram</div>
+          <div class="contact-value">
+            <a href="https://instagram.com/docesvieira" target="_blank" rel="noopener">
+              @docesvieira
+            </a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">&#128205;</div>
+          <div class="contact-label">Localização</div>
+          <div class="contact-value">Biguaçu, SC</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       RODAPÉ (footer)
+       Informações finais da página.
+  ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <p>
+      &copy; 2026 <strong>Doces Vieira</strong> &mdash;
+      Docinhos Artesanais com amor &#128149; | Biguaçu, Santa Catarina
+    </p>
+    <p class="footer-sub">
+      Site desenvolvido com HTML5, CSS3 e JavaScript &mdash; Projeto Extensionista
+    </p>
+  </footer>
+
+  <!-- ============================================================
+       MODAL DE INGREDIENTES
+       Janela flutuante que aparece ao clicar em um produto.
+       Controlada pelo JavaScript (script.js).
+       O atributo "aria-modal" melhora a acessibilidade.
+  ============================================================ -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal">
+      <!-- Botão para fechar o modal -->
+      <button class="modal-close" id="modalClose" aria-label="Fechar">&#10005;</button>
+
+      <!-- Imagem do produto -->
+      <img class="modal-img" id="modalImg" src="" alt="">
+
+      <!-- Corpo do modal com informações do produto -->
+      <div class="modal-body">
+        <p class="modal-category" id="modalCategory"></p>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <p class="modal-desc" id="modalDesc"></p>
+
+        <!-- Lista de ingredientes (gerada dinamicamente pelo JS) -->
+        <p class="modal-ingredients-label">Ingredientes principais</p>
+        <div class="modal-ingredients" id="modalIngredients"></div>
+
+        <!-- Link para fazer o pedido pelo WhatsApp -->
+        <a href="https://wa.me/5548999627040" class="btn-whatsapp-modal" target="_blank" rel="noopener">
+          &#128241; Pedir pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script JavaScript externo (carregado ao final do body
+       para não bloquear o carregamento visual da página) -->
+  <script src="js/script.js"></script>
+
+</body>
+</html>
