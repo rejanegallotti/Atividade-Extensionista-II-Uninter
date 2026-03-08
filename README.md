@@ -1,13 +1,13 @@
 # 🍫 Doces Vieira — Site Institucional
 
-> Projeto extensionista desenvolvido como atividade acadêmica universitária.  
-> Site institucional para a microempreendedora **Doces Vieira**, confeitaria artesanal especializada em brigadeiros gourmet e docinhos de festa, localizada em Biguaçu, Santa Catarina.
+> Projeto extensionista desenvolvido como atividade acadêmica universitária - UNINTER
+> Site institucional para a microempreendedora **Doces Vieira**, confeitaria artesanal especializada em brigadeiros gourmet e docinhos de festa, localizada em Palhoça, Santa Catarina.
 
 ---
 
 ## 📋 Sobre o Projeto
 
-Este site foi criado para atender à necessidade real de uma pequena confeiteira artesanal que não possuía presença digital. O projeto tem caráter extensionista, aplicando conhecimentos de desenvolvimento web em benefício da comunidade local.
+Este site foi criado para atender a uma necessidade real de uma pequena confeiteira artesanal que não possuía presença digital. O projeto tem caráter extensionista, aplicando conhecimentos de desenvolvimento web em benefício da comunidade local.
 
 **Objetivo:** Criar uma vitrine digital atrativa para a Doces Vieira, permitindo que clientes conheçam os produtos, visualizem os ingredientes e entrem em contato via WhatsApp para fazer encomendas.
 
@@ -20,7 +20,6 @@ Este site foi criado para atender à necessidade real de uma pequena confeiteira
 - ✅ **Modal de ingredientes** — ao clicar no produto, abre janela com descrição e ingredientes
 - ✅ **Botão WhatsApp** para facilitar encomendas diretamente pelo aplicativo
 - ✅ **Design responsivo** — funciona em celular, tablet e desktop
-- ✅ **Menu mobile** com animação de hambúrguer
 - ✅ **Acessibilidade** — uso de atributos ARIA e navegação por teclado
 - ✅ **SEO básico** — meta tags de descrição e palavras-chave
 
@@ -140,10 +139,15 @@ O site adapta seu layout para três tamanhos de tela:
 ## 👩‍💻 Informações do Projeto
 
 - **Negócio atendido:** Doces Vieira — Docinhos Artesanais
-- **Localização:** Biguaçu, Santa Catarina
-- **Contato:** (48) 99962-7040 (WhatsApp)
+- **Localização:** Palhoça, Santa Catarina
+- **Contato:** (99) 999999999 (WhatsApp)
 - **Tipo de projeto:** Extensionista Universitário
 - **Ano:** 2026
+
+---
+
+Projeto desenvolvido para o site da Confeitaria Doce Vieira.
+Código proprietário. Uso não autorizado é proibido.
 
 ---
 
