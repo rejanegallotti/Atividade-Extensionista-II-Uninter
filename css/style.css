@@ -335,10 +335,10 @@ ul {
 .hero-bg {
   position: absolute;
   inset: 0;                 /* Equivale a top/right/bottom/left: 0 */
-  background-image: url('../img/banner2.jpg');
-  background-size: auto 100%;
-  background-position: right center;
-  opacity: 0.35;            /* Semi-transparente para não competir com o texto */
+  background-image: url('../img/banner1.jpeg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.22;            /* Semi-transparente para não competir com o texto */
 }
 
 /* Conteúdo textual do hero */
