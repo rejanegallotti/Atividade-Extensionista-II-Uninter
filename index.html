@@ -5,7 +5,7 @@
   ============================================================
   Arquivo:      index.html
   Descrição:    Estrutura principal do site (HTML5 semântico)
-  Autora:       Doces Vieira
+  Autora:       Rejane Menezes Reis Gallotti Franceschinelli
   Tecnologias:  HTML5, CSS3, JavaScript (ES6+)
 
   Estrutura de pastas do projeto:
@@ -40,12 +40,11 @@
 
 <body>
 
-  <!-- ============================================================
-       CABEÇALHO (header)
+  <!-- CABEÇALHO (header)
        Fixo no topo da página; contém logo, nome e navegação.
        O atributo "sticky" no CSS garante que fique visível
        durante o scroll da página.
-  ============================================================ -->
+  -->
   <header class="header" id="topo">
     <div class="header-logo">
       <!-- Logo da marca -->
@@ -75,11 +74,10 @@
     </button>
   </header>
 
-  <!-- ============================================================
-       SEÇÃO HERO (banner principal)
+  <!-- SEÇÃO HERO (banner principal)
        Primeira coisa que o visitante vê ao abrir o site.
        Contém imagem de fundo, chamada principal e botão de ação.
-  ============================================================ -->
+  -->
   <section class="hero" aria-label="Apresentação">
     <!-- Overlay escuro sobre a imagem de fundo (definido no CSS) -->
     <div class="hero-bg"></div>
@@ -105,11 +103,10 @@
     </div>
   </section>
 
-  <!-- ============================================================
-       BARRA DE DIFERENCIAIS
+  <!-- BARRA DE DIFERENCIAIS
        Destaca os principais pontos fortes do negócio
        com ícones e textos curtos.
-  ============================================================ -->
+  -->
   <div class="features-bar" aria-label="Diferenciais">
     <div class="feature-item">
       <span class="feature-icon">&#127874;</span>
@@ -129,14 +126,13 @@
     </div>
   </div>
 
-  <!-- ============================================================
-       SEÇÃO DE PRODUTOS
+  <!-- SEÇÃO DE PRODUTOS
        Exibe os docinhos em grade (grid).
        Os cards são gerados dinamicamente pelo JavaScript
        com base no array de produtos definido no script.js.
        O efeito de hover (mouse sobre o card) e o modal
        com ingredientes são controlados pelo JavaScript.
-  ============================================================ -->
+  -->
   <section class="products-section" id="produtos" aria-label="Nossos produtos">
     <div class="container">
       <!-- Cabeçalho da seção -->
@@ -154,11 +150,10 @@
     </div>
   </section>
 
-  <!-- ============================================================
-       SEÇÃO SOBRE NÓS
+  <!-- SEÇÃO SOBRE NÓS
        Conta a história e os valores da Doces Vieira,
        com foto e destaques numéricos.
-  ============================================================ -->
+  -->
   <section class="about-section" id="sobre" aria-label="Sobre nós">
     <!-- Foto da confeiteira / produto em destaque -->
     <div class="about-img-wrap">
@@ -197,11 +192,10 @@
     </div>
   </section>
 
-  <!-- ============================================================
-       SEÇÃO DE CONTATO
+  <!-- SEÇÃO DE CONTATO
        Exibe formas de contato: WhatsApp, Instagram e localização.
        Os pedidos são realizados via WhatsApp (sem carrinho no site).
-  ============================================================ -->
+  -->
   <section class="contact-section" id="contato" aria-label="Contato e encomendas">
     <div class="container container--center">
       <p class="section-label">Entre em contato</p>
@@ -240,10 +234,9 @@
     </div>
   </section>
 
-  <!-- ============================================================
-       RODAPÉ (footer)
+  <!-- RODAPÉ (footer)
        Informações finais da página.
-  ============================================================ -->
+  -->
   <footer class="footer" role="contentinfo">
     <p>
       &copy; 2026 <strong>Doces Vieira</strong> &mdash;
@@ -254,12 +247,11 @@
     </p>
   </footer>
 
-  <!-- ============================================================
-       MODAL DE INGREDIENTES
+  <!-- MODAL DE INGREDIENTES
        Janela flutuante que aparece ao clicar em um produto.
        Controlada pelo JavaScript (script.js).
        O atributo "aria-modal" melhora a acessibilidade.
-  ============================================================ -->
+  -->
   <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
     <div class="modal">
       <!-- Botão para fechar o modal -->

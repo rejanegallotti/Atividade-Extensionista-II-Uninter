@@ -1,10 +1,4 @@
 /**
- * ============================================================
- * DOCES VIEIRA — Script Principal
- * ============================================================
- * Arquivo:    js/script.js
- * Descrição:  Toda a interatividade do site usando JavaScript ES6+.
- *
  * Funcionalidades implementadas:
  *   1. Dados dos produtos (array de objetos)
  *   2. Renderização dinâmica dos cards de produto
@@ -12,19 +6,15 @@
  *   4. Menu mobile (hambúrguer)
  *   5. Fechamento por tecla ESC
  *   6. Fechar modal ao clicar fora
- * ============================================================
  */
 
 'use strict'; // Modo estrito: boas práticas, evita erros silenciosos
 
 
-/* ============================================================
-   1. DADOS DOS PRODUTOS
-   Array de objetos JavaScript. Cada objeto representa
-   um produto com suas propriedades.
-   Para adicionar novos produtos, basta adicionar um novo
-   objeto a este array seguindo o mesmo modelo.
-============================================================ */
+/* 1. DADOS DOS PRODUTOS
+   Array de objetos JavaScript. Cada objeto representa um produto com suas propriedades.
+   Para adicionar novos produtos, basta adicionar um novo objeto ao array, seguindo o mesmo modelo.
+*/
 const produtos = [
   {
     nome:        'Brigadeiro de Leite Ninho com Nutella',
@@ -78,11 +68,8 @@ const produtos = [
 ];
 
 
-/* ============================================================
-   2. SELEÇÃO DOS ELEMENTOS DO DOM
-   Guardamos referências aos elementos HTML que serão
-   manipulados, evitando buscá-los repetidamente no DOM.
-============================================================ */
+/* 2. SELEÇÃO DOS ELEMENTOS DO DOM
+   Guardamos referências aos elementos HTML que serão manipulados, evitando buscá-los repetidamente no DOM. */
 const productsGrid  = document.getElementById('productsGrid');   // Grade de produtos
 const modalOverlay  = document.getElementById('modalOverlay');   // Fundo do modal
 const modalClose    = document.getElementById('modalClose');     // Botão fechar (X)
@@ -95,14 +82,10 @@ const menuToggle    = document.getElementById('menuToggle');     // Botão hamb�
 const mainNav       = document.getElementById('mainNav');        // Menu de navegação
 
 
-/* ============================================================
-   3. RENDERIZAÇÃO DOS CARDS DE PRODUTO
-   Percorre o array `produtos` e cria um card HTML
-   para cada item, inserindo-o na grade.
-
-   Técnica utilizada: Template Literals (crases ``) para
-   montar HTML como string, e innerHTML para inserir.
-============================================================ */
+/* 3. RENDERIZAÇÃO DOS CARDS DE PRODUTO
+   Percorre o array `produtos` e cria um card HTML para cada item, inserindo-o na grade.
+   Técnica utilizada: Template Literals (crases ``) para montar HTML como string, e innerHTML para inserir.
+*/
 
 /**
  * Cria e retorna o elemento HTML de um card de produto.
@@ -168,11 +151,9 @@ function renderizarProdutos() {
 }
 
 
-/* ============================================================
-   4. MODAL DE INGREDIENTES
-   Funções para abrir e fechar a janela flutuante que
-   exibe os detalhes e ingredientes do produto clicado.
-============================================================ */
+/* 4. MODAL DE INGREDIENTES
+   Funções para abrir e fechar a janela flutuante que exibe os detalhes e ingredientes do produto clicado.
+*/
 
 /**
  * Abre o modal com os dados do produto selecionado.
@@ -225,12 +206,11 @@ function fecharModal() {
 }
 
 
-/* ============================================================
-   5. MENU MOBILE (HAMBÚRGUER)
+/* 5. MENU MOBILE (HAMBÚRGUER)
    Controla a exibição do menu em telas pequenas.
    Ao clicar no botão, alterna a classe 'aberto' no nav
    e 'ativo' no botão (para a animação do ícone).
-============================================================ */
+*/
 
 /**
  * Alterna (abre/fecha) o menu mobile.
@@ -255,10 +235,9 @@ function fecharMenu() {
 }
 
 
-/* ============================================================
-   6. REGISTRO DE EVENTOS (Event Listeners)
+/* 6. REGISTRO DE EVENTOS (Event Listeners)
    Conecta as funções acima aos eventos do usuário.
-============================================================ */
+*/
 
 // Fechar modal ao clicar no botão X
 modalClose.addEventListener('click', fecharModal);
@@ -287,11 +266,10 @@ mainNav.querySelectorAll('a').forEach((link) => {
 });
 
 
-/* ============================================================
-   7. INICIALIZAÇÃO
+/* 7. INICIALIZAÇÃO
    Executa as funções principais quando o script é carregado.
    O script está no final do <body>, então o DOM já está pronto.
-============================================================ */
+*/
 renderizarProdutos();
 
 // Log para confirmar carregamento (visível no console do navegador)

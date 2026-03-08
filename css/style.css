@@ -1,13 +1,4 @@
-/*
-  ============================================================
-  DOCES VIEIRA — Folha de Estilos Principal
-  ============================================================
-  Arquivo:    css/style.css
-  Descrição:  Todos os estilos visuais do site usando CSS3.
-              Organizado em seções comentadas para facilitar
-              a leitura e manutenção do código.
-
-  Sumário:
+/*Sumário:
     1. Variáveis CSS (Custom Properties)
     2. Reset e Base
     3. Tipografia
@@ -23,15 +14,13 @@
    13. Rodapé
    14. Animações (@keyframes)
    15. Media Queries (Responsividade)
-  ============================================================
 */
 
 
-/* ============================================================
-   1. VARIÁVEIS CSS (Custom Properties)
+/* 1. VARIÁVEIS CSS (Custom Properties)
    Centralizamos as cores e valores repetidos aqui.
    Para mudar a identidade visual, basta alterar estes valores.
-============================================================ */
+*/
 :root {
   /* Paleta de cores da marca */
   --cor-principal:    #d4006a;   /* Rosa vibrante — cor primária */
@@ -64,11 +53,10 @@
 }
 
 
-/* ============================================================
-   2. RESET E BASE
+/* 2. RESET E BASE
    Remove estilos padrão inconsistentes entre navegadores
    e define comportamentos globais da página.
-============================================================ */
+*/
 
 /* Box-sizing: inclui padding e border no cálculo de largura */
 *,
@@ -110,10 +98,9 @@ ul {
 }
 
 
-/* ============================================================
-   3. TIPOGRAFIA
+/* 3. TIPOGRAFIA
    Estilos reutilizáveis para títulos e textos de seção.
-============================================================ */
+*/
 
 /* Etiqueta/label acima dos títulos de seção */
 .section-label {
@@ -144,10 +131,9 @@ ul {
 }
 
 
-/* ============================================================
-   4. UTILITÁRIOS
+/* 4. UTILITÁRIOS
    Classes auxiliares reutilizáveis em várias seções.
-============================================================ */
+*/
 
 /* Container centralizado com largura máxima */
 .container {
@@ -206,11 +192,10 @@ ul {
 }
 
 
-/* ============================================================
-   5. HEADER / NAVEGAÇÃO
+/* 5. HEADER / NAVEGAÇÃO
    Cabeçalho fixo no topo. Usa Flexbox para alinhar
    logo à esquerda e menu à direita.
-============================================================ */
+*/
 .header {
   position: sticky;       /* Fica fixo ao rolar a página */
   top: 0;
@@ -275,11 +260,10 @@ ul {
 }
 
 
-/* ============================================================
-   6. MENU MOBILE (Hambúrguer)
+/* 6. MENU MOBILE (Hambúrguer)
    Botão visível apenas em telas pequenas.
    As 3 linhas animam para formar um "X" quando ativo.
-============================================================ */
+*/
 .menu-toggle {
   display: none;              /* Oculto em desktop */
   flex-direction: column;
@@ -316,11 +300,10 @@ ul {
 }
 
 
-/* ============================================================
-   7. HERO (BANNER PRINCIPAL)
+/* 7. HERO (BANNER PRINCIPAL)
    Seção de destaque com imagem de fundo, overlay e texto.
    Usa position:relative/absolute para sobrepor camadas.
-============================================================ */
+*/
 .hero {
   position: relative;
   min-height: 520px;
@@ -388,11 +371,10 @@ ul {
 }
 
 
-/* ============================================================
-   8. BARRA DE DIFERENCIAIS
+/* 8. BARRA DE DIFERENCIAIS
    Faixa horizontal com ícones destacando os pontos fortes.
    Usa Flexbox para distribuir os itens igualmente.
-============================================================ */
+*/
 .features-bar {
   background-color: var(--cor-rosa-palido);
   padding: 28px 48px;
@@ -417,11 +399,10 @@ ul {
 }
 
 
-/* ============================================================
-   9. SEÇÃO DE PRODUTOS / CARDS
+/* 9. SEÇÃO DE PRODUTOS / CARDS
    Layout em Grid CSS para exibir os cards de produtos.
    Cada card tem: imagem, overlay (hover), e informações.
-============================================================ */
+*/
 .products-section {
   padding: var(--espacamento-secao) var(--espacamento-medio);
   background-color: var(--cor-branca);
@@ -544,12 +525,11 @@ ul {
 }
 
 
-/* ============================================================
-  10. MODAL DE INGREDIENTES
+/* 10. MODAL DE INGREDIENTES
   Janela flutuante que exibe os detalhes do produto.
   O overlay cobre a tela inteira com fundo semitransparente.
   A classe .active (adicionada pelo JS) exibe o modal.
-============================================================ */
+*/
 
 /* Fundo escuro semitransparente (cobre a página inteira) */
 .modal-overlay {
@@ -694,11 +674,10 @@ ul {
 }
 
 
-/* ============================================================
-  11. SEÇÃO SOBRE NÓS
+/* 11. SEÇÃO SOBRE NÓS
   Layout em duas colunas (Flexbox): foto à esquerda,
   texto à direita. Fundo escuro para contraste.
-============================================================ */
+*/
 .about-section {
   background: linear-gradient(135deg, #1a1a1a 0%, #3a0020 100%);
   color: var(--cor-branca);
@@ -776,11 +755,10 @@ ul {
 }
 
 
-/* ============================================================
-  12. SEÇÃO DE CONTATO
+/* 12. SEÇÃO DE CONTATO
   Cards centralizados com informações de contato.
   Fundo rosa pálido para diferenciar da seção anterior.
-============================================================ */
+*/
 .contact-section {
   background-color: var(--cor-rosa-palido);
   padding: var(--espacamento-secao) var(--espacamento-medio);
@@ -845,10 +823,9 @@ ul {
 }
 
 
-/* ============================================================
-  13. RODAPÉ
+/* 13. RODAPÉ
   Fundo preto com texto centralizado.
-============================================================ */
+*/
 .footer {
   background-color: var(--cor-preta);
   color: rgba(255, 255, 255, 0.55);
@@ -869,10 +846,9 @@ ul {
 }
 
 
-/* ============================================================
-  14. ANIMAÇÕES (@keyframes)
+/* 14. ANIMAÇÕES (@keyframes)
   Definem os movimentos usados nas transições e entradas.
-============================================================ */
+*/
 
 /* Subida com fade — usado no conteúdo do hero */
 @keyframes fadeUp {
@@ -905,15 +881,14 @@ ul {
 }
 
 
-/* ============================================================
-  15. MEDIA QUERIES (RESPONSIVIDADE)
+/* 15. MEDIA QUERIES (RESPONSIVIDADE)
   Adaptações do layout para diferentes tamanhos de tela.
 
   Breakpoints utilizados:
     - 992px → Tablet paisagem / desktop pequeno
     - 768px → Tablet retrato / mobile grande
     - 480px → Mobile pequeno
-============================================================ */
+*/
 
 /* --- Tablet e desktop pequeno (≤ 992px) --- */
 @media (max-width: 992px) {
